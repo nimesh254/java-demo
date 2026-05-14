@@ -98,6 +98,17 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+        <distributionManagement>
+    <snapshotRepository>
+        <id>nexus-snapshots</id>
+        <url>http://localhost:8082/repository/maven-snapshots/</url>
+    </snapshotRepository>
+
+    <repository>
+        <id>nexus-releases</id>
+        <url>http://localhost:8082/repository/maven-releases/</url>
+    </repository>
+</distributionManagement>
     </dependencies>
 
     <build>
