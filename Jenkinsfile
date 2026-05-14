@@ -1,13 +1,12 @@
 pipeline {
     agent any
 
-    stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
+    environment {
+        JAVA_HOME = '/usr/lib/jvm/java-21-openjdk'
+        PATH = "${JAVA_HOME}/bin:${env.PATH}"
+    }
 
+    stages {
         stage('Build') {
             steps {
                 sh './mvnw clean compile'
