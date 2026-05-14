@@ -1,33 +1,59 @@
-HELP.md
+# Maven
 target/
 !.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# Logs
+*.log
 
-### IntelliJ IDEA ###
-.idea
-*.iws
+# IDE
+.idea/
 *.iml
-*.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
 .vscode/
+.project
+.classpath
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Spring Boot
+spring.log
+
+# H2 local database
+*.mv.db
+*.trace.db
+
+# Environment / secrets
+.env
+application-local.properties
+application-secret.properties
+
+# Jenkins
+.jenkins/
+
+# Docker
+docker-compose.override.yml
+
+# Maven local repo artifacts
+.mvn/timing.properties
+
+# Temporary
+tmp/
+temp/
+
+# Linux
+*~
+
+# Nexus local data (if ever mounted locally)
+nexus-data/
+
+# PostgreSQL local volume dumps
+postgres_data/
+calendar_postgres_data/
