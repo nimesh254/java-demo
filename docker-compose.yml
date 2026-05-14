@@ -1,0 +1,30 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: calendar-postgres
+    environment:
+      POSTGRES_DB: calendar_db
+      POSTGRES_USER: calendar_user
+      POSTGRES_PASSWORD: calendar_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - calendar_postgres_data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: java-spring-calendar-app
+    depends_on:
+      - postgres
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/calendar_db
+      SPRING_DATASOURCE_USERNAME: calendar_user
+      SPRING_DATASOURCE_PASSWORD: calendar_pass
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.PostgreSQLDialect
+      SERVER_PORT: 8081
+
+volumes:
+  calendar_postgres_data:
